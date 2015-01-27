@@ -1,5 +1,7 @@
 <div class="card-input">
+    <label>Full Name</label>
     <input type="text" name="full-name"/>
+    <label>Card Number</label>
     <input type="text" name="card-number"/>
 </div>
 <div class="card-output">
