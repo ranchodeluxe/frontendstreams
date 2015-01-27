@@ -1,16 +1,19 @@
 {
-  "name": "",
-  "version": "0.9.2",
-  "author": "",
-  "description": "",
+  "name": "Front-End Strams",
+  "version": "0.0.0",
+  "author": "sudobangbang",
+  "description": "tricks, trapdoors and tests for using NodeJS streams in the browser",
   "license": "MIT",
-  "homepage": "",
-  "bugs": "",
-  "repository": {},
+  "homepage": "https://github.com/thebigspoon/frontendstreams",
+  "bugs": "https://github.com/thebigspoon/frontendstreams/issues",
+  "repository": {
+      "type" : "git",
+      "url": "https://github.com/thebigspoon/frontendstreams"
+  },
   "keywords": [],
-  "main": "src/cycle.js",
   "scripts": {
-    "test": "browserify test/index.js | jsdom-eval | faucet"
+    "test": "browserify test/index.js | jsdom-eval | faucet",
+    "compile": "./build.sh"
   },
   "devDependencies": {
     "browserify": "^8.0.2",
