@@ -1,0 +1,10 @@
+<div class="card-input">
+    <input type="text" name="full-name"/>
+    <input type="text" name="card-number"/>
+</div>
+<div class="card-output">
+    <div class="card-template">
+        <span class="card-number">{{ cardNumber }}</span>
+        <span class="card-name">{{ fullName }}</span>
+    </div>
+</div>
