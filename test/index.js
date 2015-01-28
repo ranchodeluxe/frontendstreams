@@ -130,59 +130,8 @@ test('dom-event input focus', function(t) {
 **
 */
 /*
-test('dom-event input keyup', function(t) {
-    t.plan(1);
-    var initial = "foobar";
-    var el = dom();
-    var target = document.createElement('input');
-    target.type = "text";
-    target.value = initial;
-    el.appendChild( target );
+test('dom-event input keyup', function(t) {});
 
-    var captured_value = null;
-    var input_keyup_handler = direct( target, 'keyup', function( e ) {
-        console.warn( '[ TARGET VALUE ]: ', e.target.value );
-        captured_value = e.target.value;
-    }, true );
-
-    var evt = document.createEvent("KeyboardEvent");
-    var new_value = 'whizbang';
-    target.value = new_value;
-    //event.initKeyboardEvent (type, bubbles, cancelable, viewArg, ctrlKeyArg, altKeyArg, shiftKeyArg, metaKeyArg, keyCodeArg, charCodeArg)
-    evt.initKeyboardEvent('keyup', true, true, window, false, false, false, false, 13, 0);
-    target.dispatchEvent(evt);
-
-    t.equal( captured_value, new_value );
-});
-
-test('dom-event input keyup cancel ENTER', function(t) {
-    t.plan(1);
-    var initial = "foobar";
-    var el = dom();
-    var target = document.createElement('input');
-    target.type = "text";
-    target.value = initial;
-    el.appendChild( target );
-
-    var captured_value = null;
-    var input_keyup_handler = direct( target, 'keyup', function( e ) {
-        if ( e.keyCode !== 13 ) {
-            e.stopPropagation();
-            e.preventDefault();
-            return;
-        }
-        console.warn( '[ TARGET VALUE ]: ', e.target.value );
-        captured_value = e.target.value;
-    }, true );
-
-    var evt = document.createEvent("KeyboardEvent");
-    var new_value = 'whizbang';
-    target.value = new_value;
-    //event.initKeyboardEvent (type, bubbles, cancelable, viewArg, ctrlKeyArg, altKeyArg, shiftKeyArg, metaKeyArg, keyCodeArg, charCodeArg)
-    evt.initKeyboardEvent('keyup', true, true, window, false, false, false, false, 13, 0);
-    target.dispatchEvent(evt);
-
-    t.equal( captured_value, null );
-});
+test('dom-event input keyup cancel ENTER', function(t) {});
 */
 

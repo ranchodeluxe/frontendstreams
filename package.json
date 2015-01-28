@@ -13,7 +13,8 @@
   "keywords": [],
   "scripts": {
     "test": "browserify test/index.js | jsdom-eval | faucet",
-    "build": "./build.sh"
+    "build": "./build.sh",
+    "serve": "serve"
   },
   "devDependencies": {
     "browserify": "^8.0.2",
@@ -24,7 +25,8 @@
     "tape": "^3.0.3",
     "delegate-dom": "^0.0.1",
     "dom-event": "^0.0.4",
-    "through": "^2.3.6"
+    "through": "^2.3.6",
+    "serve": "^1.4.0"
   },
   "dependencies": {
     "dom-delegation-stream": "^0.0.0",
