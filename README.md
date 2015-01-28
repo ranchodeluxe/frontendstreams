@@ -30,7 +30,7 @@ $ npm test  # to run the tests
 
 This section explains the workflow on how to go from the source javascript to the built version we can use in the browser. 
 
-The magic sauce is the [browserify](https://www.npmjs.com/package/browserify) tool. Browserify will package up our NodeJS modules and all dependent `require()` modules into something that is usable in the browser. Here we explain that workflow in the context of [Example 1](https://thebigspoon.github.io/frontendstreams/example/ex_1.html).
+The magic sauce is the [Browserify](https://www.npmjs.com/package/browserify) tool. Browserify will package up our NodeJS modules and all dependent `require()` modules into something that is usable in the browser. Here we explain that workflow in the context of [Example 1](https://thebigspoon.github.io/frontendstreams/example/ex_1.html).
 
 The source code for example one is located in `/src/ex_1.js`. All the business logic for the example is located in this module:
 
@@ -78,15 +78,21 @@ All the html needs is a way to automatically call this on load. And so we have a
 </html>
 ```
 
-The last thing we need to talk about is how to run browserify. Notice the first script tag in the above code. We are importing one file called `main_ex_1.js`. Because of the similar name you might think this is the file located in `/src/` but it's not. This is the browserified or built version of that file that is output in `/example/js/`.
+The last thing we need to talk about is how to run Browserify. Notice the first script tag in the above code. We are importing one file called `main_ex_1.js`. Because of the similar name you might think this is the file located in `/src/` but it's not. This is the Browserified or built version of that file that is output in `/example/js/`.
 
-We browserify things using the browserify executable. For the examples this is handled in the [build script](https://github.com/thebigspoon/frontendstreams/blob/master/build.sh#L13) but can be called in the command line:
+We Browserify things using the `browserify` executable. For our examples this is handled in the [build script](https://github.com/thebigspoon/frontendstreams/blob/master/build.sh#L13) but can be called from the command line:
 
 ```bash
 $ browserify main_input_file.js  >  output_file.js
 ```
 
-Note: that if you are using [ractive](https://www.npmjs.com/package/ractive) templates the browserify command needs an extra `transform` flag and another tool [ractify](https://www.npmjs.com/package/ractify) for precompiling the template. The third example uses a template and the [build script](https://github.com/thebigspoon/frontendstreams/blob/master/build.sh#L9) runs the browserify command with this in mind.
+For example, the `browserify` command for example one would look like this:
+
+```bash
+$ browserify /absolute/path/to/src/main_ex_1.js > /absolute/path/to/example/js/main_ex_1.js
+```
+
+Note: that if you are using [ractive](https://www.npmjs.com/package/ractive) templates the `browserify` command needs an extra `transform` flag and another tool [ractify](https://www.npmjs.com/package/ractify) for precompiling the template. The third example uses a template and the [build script](https://github.com/thebigspoon/frontendstreams/blob/master/build.sh#L9) runs the `browserify` command with this in mind.
 
 ###ToDo
 1. more examples
