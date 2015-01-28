@@ -14,6 +14,8 @@ $ npm install
 
 $ npm run build  # to build example JS
 
+$ npm serve  # then go localhost:3000 to and look at /examples
+
 $ npm test  # to run the tests
 ```
 
