@@ -14,7 +14,7 @@
   "scripts": {
     "test": "browserify test/index.js | jsdom-eval | faucet",
     "build": "./build.sh",
-    "serve": "serve",
+    "serve": "serve"
   },
   "devDependencies": {
     "browserify": "^8.0.2",
