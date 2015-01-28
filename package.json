@@ -1,5 +1,5 @@
 {
-  "name": "Front-End Strams",
+  "name": "frontendstreams",
   "version": "0.0.0",
   "author": "sudobangbang",
   "description": "tricks, trapdoors and tests for using NodeJS streams in the browser",
@@ -13,7 +13,7 @@
   "keywords": [],
   "scripts": {
     "test": "browserify test/index.js | jsdom-eval | faucet",
-    "compile": "./build.sh"
+    "build": "./build.sh"
   },
   "devDependencies": {
     "browserify": "^8.0.2",
