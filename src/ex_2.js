@@ -12,7 +12,6 @@ module.exports = function () {
 
     var ostate = objectState();
     ostate.listen(input, 'userInput');
-    ostate.on( 'data', function( state ){ document.getElementById( 'ostate_output' ).innerHTML = JSON.stringify( state ) } );
-
+    ostate.on( 'data', function( state ){ document.getElementById( 'ostate_output' ).innerHTML = JSON.stringify( state, null, 4 ) } );
 }
 
