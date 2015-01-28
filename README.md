@@ -2,7 +2,7 @@
 
 ###Front-End Streams
 
-This is a series of examples that use NodeJS stream modules such as [through](https://www.npmjs.com/package/through) in front-end programming. The target audience is noobs. For more information about NodeJS stream modules check out the [stream handbook](https://github.com/substack/stream-handbook) and [stream-adventure](https://www.npmjs.com/package/stream-adventure). These examples and the NodeJS tooling we'll be using were inspired by [jessekeane](http://words.jessekeane.me/about/) in his front-end stream [post](http://words.jessekeane.me/front-end-streams/). The first three examples are from that original post. I've created solutions for them here because the post did not originally have solutions. The first tests in `test/index.js` give a sense for how to reason about the dependencies for [dom-delegation-stream](https://www.npmjs.com/package/dom-delegation-stream). Much thanks to [jessekeane](http://words.jessekeane.me/about/) for exposing these modules to me.
+This is a series of examples that use NodeJS stream modules such as [through](https://www.npmjs.com/package/through) in front-end programming. The target audience is noobs. For more information about NodeJS stream modules check out [stream-handbook](https://github.com/substack/stream-handbook) and [stream-adventure](https://www.npmjs.com/package/stream-adventure). The NodeJS tooling used in these examples was inspired by [jessekeane](http://words.jessekeane.me/about/) in his front-end stream [post](http://words.jessekeane.me/front-end-streams/). The first three examples are from that original post. I've created solutions for them here because the post did not originally have solutions. The first tests in `test/index.js` show how to test some dependencies for [dom-delegation-stream](https://www.npmjs.com/package/dom-delegation-stream). Much thanks to [jessekeane](http://words.jessekeane.me/about/) for exposing these modules to me.
 
 
 ###Getting Started
@@ -28,11 +28,11 @@ $ npm test  # to run the tests
 
 ###Browserify and the Build Sequence
 
-This section explains the workflow on how to go from the source javascript to the built version we can use in the browser. 
+For those unfamiliar with [Browserify](https://www.npmjs.com/package/browserify), this section explains how to go from source javascript to builds we can use in the browser. 
 
-The magic sauce is the [Browserify](https://www.npmjs.com/package/browserify) tool. Browserify will package up our NodeJS modules and all dependent `require()` modules into something that is usable in the browser. Here we explain that workflow in the context of [Example 1](https://thebigspoon.github.io/frontendstreams/example/ex_1.html).
+The magic sauce is [Browserify](https://www.npmjs.com/package/browserify). Browserify will package up our NodeJS modules and all dependent `require()` modules into something that is usable in the browser. Below we explain that workflow in the context of [Example 1](https://thebigspoon.github.io/frontendstreams/example/ex_1.html).
 
-The source code for example one is located in `/src/ex_1.js`. All the business logic for the example is located in this module:
+The business logic for example one one is located in `/src/ex_1.js`:
 
 ```javascript
 var write = require('dom-replace-html-stream') , 
@@ -46,7 +46,7 @@ module.exports = function () {
 }
 ```
 
-Notice the `require()` statements and `module.exports` convention. This is a NodeJS module and in its raw form the browser cannot digest it. To use this in the browser we need a couple things. First we need some magic that will allow the browser to resolve our `require()` imports. Browserify is this magic as mentioned before. Secondly, we need an entry point, a bridge, between the browser and the modules. We need a way to link the browser scope of `window` to our NodeJS modules. 
+Notice the `require()` statements and `module.exports` convention. This is a NodeJS module. In its raw form the browser cannot digest it. To use this in the browser we need a couple things. First we need something that will allow the browser to resolve our `require()` imports. Browserify makes this happen for us. Secondly, we need an entry point, a bridge, between the browser and the NodeJS modules. We need a way to link the browser context of `window` with the code in our modules. 
 
 Notice that each example in `/src/` has a corresponding `/src/main_< example name >.js`. This is the bridge:
 
@@ -57,9 +57,9 @@ App = window.App || {};
 App.load_demo = ex_1;
 ```
 
-Here we are importing our NodeJS module, which Browserify will resolve for us, and binding it to the `window.App` scope. After the html and and browserified version of our javascript are loaded into the browser we should have a reference to an `App.load_demo` function in the console. 
+Above we are importing our NodeJS example module, which Browserify will resolve for us, and binding it to `window.App`. After the html and and Browserified javascript is loaded in the browser we should have a global `App` variable and a `App.load_demo` function off of it. 
 
-All the html needs is a way to automatically call this on load. And so we have a small `<script>` tag at the bottom of the html in `/example/ex_1.html`. Note the last script tag:
+The html just needs to call this on load. There is a small `<script>` tag at the bottom of the html in `/example/ex_1.html` that does this:
 
 ```html
 <html>
@@ -78,7 +78,7 @@ All the html needs is a way to automatically call this on load. And so we have a
 </html>
 ```
 
-The last thing we need to talk about is how to run Browserify. Notice the first script tag in the above code. We are importing one file called `main_ex_1.js`. Because of the similar name you might think this is the file located in `/src/` but it's not. This is the Browserified or built version of that file that is output in `/example/js/`.
+The last thing we need to talk about is how to run Browserify. Notice the first script tag in the above code. We are importing one file called `main_ex_1.js`. Because of the similar name you might think this is the file located in `/src/`, but it's not. This is the Browserified ( or compiled ) file that is output to `/example/js/`.
 
 We Browserify things using the `browserify` executable. For our examples this is handled in the [build script](https://github.com/thebigspoon/frontendstreams/blob/master/build.sh#L13) but can be called from the command line:
 
@@ -86,7 +86,7 @@ We Browserify things using the `browserify` executable. For our examples this is
 $ browserify main_input_file.js  >  output_file.js
 ```
 
-For example, the `browserify` command for example one would look like this:
+The `browserify` command for example one would look like this:
 
 ```bash
 $ browserify /absolute/path/to/src/main_ex_1.js > /absolute/path/to/example/js/main_ex_1.js
