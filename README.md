@@ -16,6 +16,11 @@ $ npm test # to run the tests
 
 ###ToDo
 
-1. More Examples
+1. more examples
+
+2. more tests
+
+3. hook up TravisCI
+
 
 
