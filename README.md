@@ -33,7 +33,3 @@ $ npm test  # to run the tests
 
 2. more tests
 
-3. hook up TravisCI
-
-
-
