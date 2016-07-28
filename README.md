@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/thebigspoon/dom-delegation-stream.svg)](https://travis-ci.org/thebigspoon/frontendstreams)
+[![Build Status](https://travis-ci.org/ranchodeluxe/dom-delegation-stream.svg)](https://travis-ci.org/ranchodeluxe/frontendstreams)
 
 ###Front-End Streams
 
@@ -19,18 +19,18 @@ $ npm test  # to run the tests
 
 ###Examples
 
-[Example 1](https://thebigspoon.github.io/frontendstreams/example/ex_1.html): stream changes from a text input to an output element
+[Example 1](https://ranchodeluxe.github.io/frontendstreams/example/ex_1.html): stream changes from a text input to an output element
 
-[Example 2](https://thebigspoon.github.io/frontendstreams/example/ex_2.html): stream changes from a text input to an output element and have [objectState](https://www.npmjs.com/package/objectstate) listen to those changes too
+[Example 2](https://ranchodeluxe.github.io/frontendstreams/example/ex_2.html): stream changes from a text input to an output element and have [objectState](https://www.npmjs.com/package/objectstate) listen to those changes too
 
-[Example 3](https://thebigspoon.github.io/frontendstreams/example/ex_3.html): like example one and two, but this time have [objectState](https://www.npmjs.com/package/objectstate) work with a [ractive](https://www.npmjs.com/package/ractive) template and rerender it on state change
+[Example 3](https://ranchodeluxe.github.io/frontendstreams/example/ex_3.html): like example one and two, but this time have [objectState](https://www.npmjs.com/package/objectstate) work with a [ractive](https://www.npmjs.com/package/ractive) template and rerender it on state change
 
 
 ###Browserify and the Build Sequence
 
 For those unfamiliar with [Browserify](https://www.npmjs.com/package/browserify), this section explains how to go from source javascript to builds we can use in the browser. 
 
-The magic sauce is [Browserify](https://www.npmjs.com/package/browserify). Browserify will package up our NodeJS modules and all dependent `require()` modules into something that is usable in the browser. Below we explain that workflow in the context of [Example 1](https://thebigspoon.github.io/frontendstreams/example/ex_1.html).
+The magic sauce is [Browserify](https://www.npmjs.com/package/browserify). Browserify will package up our NodeJS modules and all dependent `require()` modules into something that is usable in the browser. Below we explain that workflow in the context of [Example 1](https://ranchodeluxe.github.io/frontendstreams/example/ex_1.html).
 
 The business logic for example one one is located in `/src/ex_1.js`:
 
@@ -80,7 +80,7 @@ The html just needs to call this on load. There is a small `<script>` tag at the
 
 The last thing we need to talk about is how to run Browserify. Notice the first script tag in the above code. We are importing one file called `main_ex_1.js`. Because of the similar name you might think this is the file located in `/src/`, but it's not. This is the Browserified ( or compiled ) file that is output to `/example/js/`.
 
-We Browserify things using the `browserify` executable. For our examples this is handled in the [build script](https://github.com/thebigspoon/frontendstreams/blob/master/build.sh#L13) but can be called from the command line:
+We Browserify things using the `browserify` executable. For our examples this is handled in the [build script](https://github.com/ranchodeluxe/frontendstreams/blob/master/build.sh#L13) but can be called from the command line:
 
 ```bash
 $ browserify main_input_file.js  >  output_file.js
@@ -92,7 +92,7 @@ The `browserify` command for example one would look like this:
 $ browserify /absolute/path/to/src/main_ex_1.js > /absolute/path/to/example/js/main_ex_1.js
 ```
 
-Note: that if you are using [ractive](https://www.npmjs.com/package/ractive) templates the `browserify` command needs an extra `transform` flag and another tool [ractify](https://www.npmjs.com/package/ractify) for precompiling the template. The third example uses a template and the [build script](https://github.com/thebigspoon/frontendstreams/blob/master/build.sh#L9) runs the `browserify` command with this in mind.
+Note: that if you are using [ractive](https://www.npmjs.com/package/ractive) templates the `browserify` command needs an extra `transform` flag and another tool [ractify](https://www.npmjs.com/package/ractify) for precompiling the template. The third example uses a template and the [build script](https://github.com/ranchodeluxe/frontendstreams/blob/master/build.sh#L9) runs the `browserify` command with this in mind.
 
 ###ToDo
 1. more examples
